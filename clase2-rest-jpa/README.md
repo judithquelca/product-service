@@ -9,8 +9,6 @@
 - **Servidor embebido:** Tomcat puerto:9494
 - **Contenedor Docker:** docker desktop para Windows
 
-![Imagen de contenedor descargada](screenshot/01-versiones.png)
-![Imagen de contenedor descargada](screenshot/02-app-running.png)
 
 ## Inicio del Proyecto
 
