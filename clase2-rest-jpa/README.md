@@ -15,12 +15,12 @@
 Para iniciar el proyecto se tuvo que realizar lo siguiente:
 
 Instalación del contenedor docker compose
-![Imagen de contenedor descargada](screenshot/Docker Desktop.png)
+![Imagen de contenedor descargada](screenshot/Docker-Desktop.png)
 
 Inicio del contenedor mediante la herramienta Windows PowerShell, mediante el siguiente comando:
 
 docker compose up -d
-![Imagen de contenedor descargada](screenshot/Inicio Docker.png)
+![Imagen de contenedor descargada](screenshot/Inicio-Docker.png)
 
 Adición de dependencia en pom.xml, creación del archivo docker-compose.yml y application.yml
 
@@ -30,7 +30,7 @@ Adición de dependencia en pom.xml, creación del archivo docker-compose.yml y a
 
 Mapeo de la entidad Product y creación del repositorio lo que permite persistir datos en PostgreSQL. Mediante DBeaver se puede ver la creación de la tabla products
 
-![Imagen de contenedor descargada](screenshot/Mapeo product.png)
+![Imagen de contenedor descargada](screenshot/Mapeo-product.png)
 
 ## Ejecutar
 
@@ -54,9 +54,9 @@ JSON
     "updatedAt": "2025-10-30T18:15:07.654593-04:00"
 }
 
-![Imagen de contenedor descargada](screenshot/POST Crear producto.png)
+![Imagen de contenedor descargada](screenshot/POST-Crear-producto.png)
 
-![Imagen de contenedor descargada](screenshot/Select products.png)
+![Imagen de contenedor descargada](screenshot/Select-products.png)
 
 GET /api/products lista todos los productos y permite filtrar por nombre con ?name=.
 http://localhost:9494/api/products?name=laptop DELL
@@ -72,7 +72,7 @@ JSON
         "updatedAt": "2025-10-30T22:15:07.654593Z"
     }
 ]
-![Imagen de contenedor descargada](screenshot/GET Listar products name.png)
+![Imagen de contenedor descargada](screenshot/GET-Listar-products-name.png)
 
 GET /api/products/{id} devuelve un producto por su identificador.
 http://localhost:9494/api/products/2
@@ -86,7 +86,7 @@ JSON
     "createdAt": "2025-10-30T22:15:07.654593Z",
     "updatedAt": "2025-10-30T22:15:07.654593Z"
 }
-![Imagen de contenedor descargada](screenshot/GET Obtener producto por id.png)
+![Imagen de contenedor descargada](screenshot/GET-Obtener-producto-por-id.png)
 
 	
 PUT /api/products/{id} actualiza un producto existente (todos los campos).
@@ -103,8 +103,8 @@ Se modifico el name de "laptohp" a "laptop HP GAMER"
 }
 
 
-![Imagen de contenedor descargada](screenshot/PUT Actualizar Producto ID=1.png)
-![Imagen de contenedor descargada](screenshot/VERIFICA UPDATE.png)
+![Imagen de contenedor descargada](screenshot/PUT-Actualizar-Producto-ID=1.png)
+![Imagen de contenedor descargada](screenshot/VERIFICA-UPDATE.png)
 
 
 DELETE /api/products/{id} elimina un producto.
@@ -113,8 +113,8 @@ http://localhost:9494/api/products/2
 
 
 
-![Imagen de contenedor descargada](screenshot/DELETE Eliminar Producto.png)
-[Imagen de contenedor descargada](screenshot/VERIFICA DELETE.png)
+![Imagen de contenedor descargada](screenshot/DELETE-Eliminar-Producto.png)
+[Imagen de contenedor descargada](screenshot/VERIFICA-DELETE.png)
 
 								
 
