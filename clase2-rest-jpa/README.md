@@ -2,12 +2,13 @@
 
 ## TAREA 2 - CRUD básico de productos
 
-- **Nombre:** mi-primer-springboot
+- **Nombre:** product-service
 - **Versión de Spring Boot:** 3.5.7
 - **Java:** 17
 - **Build Tool:** Maven
 - **Servidor embebido:** Tomcat puerto:9494
 - **Contenedor Docker:** docker desktop para Windows
+- **IDE:** IntelliJ IDEA Ultimate
 
 
 ## Inicio del Proyecto
@@ -211,26 +212,6 @@ JSON
 }
 ![Imagen de contenedor descargada](screenshot/GET-Obtener-producto-por-id.png)
 
-### PUT 
-
-PUT /api/products/{id} actualiza un producto existente (todos los campos).
-
-http://localhost:9494/api/products/1
-
-Se modifico el name de "laptohp" a "laptop HP GAMER"
-{
-    "id": 1,
-    "name": "laptop HP GAMER",
-    "description": "Modelo 2025 actualizado",
-    "price": 1199.90,
-    "stock": 4,
-    "createdAt": "2025-10-26T23:50:25.760284Z",
-    "updatedAt": "2025-10-30T19:20:07.8078038-04:00"
-}
-
-
-![Imagen de contenedor descargada](screenshot/PUT-Actualizar-Producto-ID=1.png)
-![Imagen de contenedor descargada](screenshot/VERIFICA-UPDATE.png)
 
 ### DELETE
 
@@ -244,7 +225,26 @@ http://localhost:9494/api/products/2
 ![Imagen de contenedor descargada](screenshot/DELETE-Eliminar-Producto.png)
 ![Imagen de contenedor descargada](screenshot/VERIFICA-DELETE.png)
 
-								
+### PUT 
+
+PUT /api/products/{id} actualiza un producto existente (todos los campos).
+
+http://localhost:9494/api/products/1
+
+Se modifico el name de "laptop HP" a "laptop HP GAMER"
+{
+    "id": 1,
+    "name": "laptop HP GAMER",
+    "description": "Modelo 2025 actualizado",
+    "price": 1199.90,
+    "stock": 4,
+    "createdAt": "2025-10-26T23:50:25.760284Z",
+    "updatedAt": "2025-10-30T19:20:07.8078038-04:00"
+}
+
+
+![Imagen de contenedor descargada](screenshot/PUT-Actualizar-Producto-ID=1.png)
+![Imagen de contenedor descargada](screenshot/VERIFICA-UPDATE.png)								
 
 ## Autor
 Judith Quelca - Curso Spring Boot & Kafka
