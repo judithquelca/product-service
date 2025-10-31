@@ -1,26 +1,22 @@
-# product-service
+# Clase 2 - REST APIs y Persistencia
 
-## TAREA 2 - CRUD básico de productos
+## Objetivo
+Implementar un CRUD sencillo con Spring Data JPA.
 
-- **Nombre:** product-service
-- **Versión de Spring Boot:** 3.5.7
-- **Java:** 17
-- **Build Tool:** Maven
-- **Servidor embebido:** Tomcat puerto:9494
-- **Contenedor Docker:** docker desktop para Windows
-- **IDE:** IntelliJ IDEA Ultimate
+## Pasos
+1. Configurar PostgreSQL con Docker Compose, configuraciones en IDE y mapeo de la entidad product 
+2. Ejecutar la aplicación (`mvn spring-boot:run`).
+3. Probar endpoints con Postman (capturas en screenshot/).
 
-
-## Inicio del Proyecto
-
-Para iniciar el proyecto se tuvo que realizar lo siguiente:
+## Configurar PostgreSQL con Docker Compose, configuraciones en IDE y mapeo de la entidad product 
 
 Instalación del contenedor docker compose
 ![Imagen de contenedor descargada](screenshot/Docker-Desktop.png)
 
-Inicio del contenedor mediante la herramienta Windows PowerShell, mediante el siguiente comando:
+Inicio del contenedor mediante la herramienta Windows PowerShell, con el siguiente comando:
 
 docker compose up -d
+
 ![Imagen de contenedor descargada](screenshot/Inicio-Docker.png)
 
 Adición de dependencia en pom.xml, creación del archivo docker-compose.yml y application.yml
@@ -29,11 +25,14 @@ Adición de dependencia en pom.xml, creación del archivo docker-compose.yml y a
 ![Imagen de contenedor descargada](screenshot/dockeryml.png)
 ![Imagen de contenedor descargada](screenshot/aplicationyml.png)	
 
-Mapeo de la entidad Product y creación del repositorio lo que permite persistir datos en PostgreSQL. Mediante DBeaver se puede ver la creación de la tabla products
+Mapeo de la entidad Product y creación del repositorio lo que permite persistir datos en PostgreSQL. 
+Mediante DBeaver se puede ver la creación de la tabla products
 
 ![Imagen de contenedor descargada](screenshot/Mapeo-product.png)
 
-## Ejecuciòn del proyecto (mientras se realiza las pruebas con postman)
+## Ejecutar la aplicación
+
+Cuando se realiza las pruebas con postman se puede ver como se persiste en la Base de Datos.
 
 ### insert
 
@@ -152,7 +151,7 @@ Hibernate:
     where
         id=?
 		
-## Pruebas de los Endpoints mediante Postman
+## Probar endpoints con Postman
 
 ### POST
 POST /api/products crea un producto con los campos name, description, price, stock.
