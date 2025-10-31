@@ -32,15 +32,17 @@ Mapeo de la entidad Product y creación del repositorio lo que permite persistir
 
 ![Imagen de contenedor descargada](screenshot/Mapeo-product.png)
 
-## Ejecucion del proyecto
+## Ejecuciòn del proyecto (mientras se realiza las pruebas con postman)
 
 ### insert
+
 insert 
     into
         products
         (created_at, description, name, price, stock, updated_at) 
     values
         (?, ?, ?, ?, ?, ?)
+		
 Hibernate: 
     insert 
     into
@@ -48,7 +50,9 @@ Hibernate:
         (created_at, description, name, price, stock, updated_at) 
     values
         (?, ?, ?, ?, ?, ?)
+		
 ### Select (name)
+
  select
         p1_0.id,
         p1_0.created_at,
@@ -61,6 +65,7 @@ Hibernate:
         products p1_0 
     where
         upper(p1_0.name) like upper(?) escape '\'
+		
 Hibernate: 
     select
         p1_0.id,
@@ -89,6 +94,7 @@ select
         products p1_0 
     where
         p1_0.id=?
+		
 Hibernate: 
     select
         p1_0.id,
@@ -116,6 +122,7 @@ Hibernate:
         updated_at=? 
     where
         id=?
+		
 Hibernate: 
     update
         products 
@@ -136,43 +143,19 @@ Hibernate:
         products 
     where
         id=?
+		
 Hibernate: 
     delete 
     from
         products 
     where
         id=?
-2025-10-30T18:45:30.295-04:00 DEBUG 31692 --- [product-service] [nio-9494-exec-1] org.hibernate.SQL                        : 
-    select
-        p1_0.id,
-        p1_0.created_at,
-        p1_0.description,
-        p1_0.name,
-        p1_0.price,
-        p1_0.stock,
-        p1_0.updated_at 
-    from
-        products p1_0 
-    where
-        upper(p1_0.name) like upper(?) escape '\'
-Hibernate: 
-    select
-        p1_0.id,
-        p1_0.created_at,
-        p1_0.description,
-        p1_0.name,
-        p1_0.price,
-        p1_0.stock,
-        p1_0.updated_at 
-    from
-        products p1_0 
-    where
-        upper(p1_0.name) like upper(?) escape '\'
 		
 ## Pruebas de los Endpoints mediante Postman
 
 ### POST
 POST /api/products crea un producto con los campos name, description, price, stock.
+
 http://localhost:9494/api/products
 
 JSON
@@ -193,7 +176,9 @@ JSON
 ### GET (name)
 
 GET /api/products lista todos los productos y permite filtrar por nombre con ?name=.
+
 http://localhost:9494/api/products?name=laptop DELL
+
 JSON
 [
     {
@@ -211,7 +196,9 @@ JSON
 ### GET (id)
 
 GET /api/products/{id} devuelve un producto por su identificador.
+
 http://localhost:9494/api/products/2
+
 JSON
 {
     "id": 2,
@@ -227,7 +214,9 @@ JSON
 ### PUT 
 
 PUT /api/products/{id} actualiza un producto existente (todos los campos).
+
 http://localhost:9494/api/products/1
+
 Se modifico el name de "laptohp" a "laptop HP GAMER"
 {
     "id": 1,
@@ -246,9 +235,10 @@ Se modifico el name de "laptohp" a "laptop HP GAMER"
 ### DELETE
 
 DELETE /api/products/{id} elimina un producto.
-Se elimina el id=2 (name = "laptop DELL")
-http://localhost:9494/api/products/2
 
+Se elimina el id=2 (name = "laptop DELL")
+
+http://localhost:9494/api/products/2
 
 
 ![Imagen de contenedor descargada](screenshot/DELETE-Eliminar-Producto.png)
