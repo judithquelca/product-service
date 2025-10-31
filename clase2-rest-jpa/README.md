@@ -32,14 +32,146 @@ Mapeo de la entidad Product y creación del repositorio lo que permite persistir
 
 ![Imagen de contenedor descargada](screenshot/Mapeo-product.png)
 
-## Ejecutar
+## Ejecucion del proyecto
 
-\```bash
-mvn spring-boot:run
-\`
+### insert
+insert 
+    into
+        products
+        (created_at, description, name, price, stock, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        products
+        (created_at, description, name, price, stock, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?)
+### Select (name)
+ select
+        p1_0.id,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        upper(p1_0.name) like upper(?) escape '\'
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        upper(p1_0.name) like upper(?) escape '\'
+		
+### Select (id)
 
+select
+        p1_0.id,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        p1_0.id=?
+		
+### update
+
+ update
+        products 
+    set
+        created_at=?,
+        description=?,
+        name=?,
+        price=?,
+        stock=?,
+        updated_at=? 
+    where
+        id=?
+Hibernate: 
+    update
+        products 
+    set
+        created_at=?,
+        description=?,
+        name=?,
+        price=?,
+        stock=?,
+        updated_at=? 
+    where
+        id=?
+		
+### delete
+
+    delete
+    from
+        products 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        products 
+    where
+        id=?
+2025-10-30T18:45:30.295-04:00 DEBUG 31692 --- [product-service] [nio-9494-exec-1] org.hibernate.SQL                        : 
+    select
+        p1_0.id,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        upper(p1_0.name) like upper(?) escape '\'
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        upper(p1_0.name) like upper(?) escape '\'
+		
 ## Pruebas de los Endpoints mediante Postman
 
+### POST
 POST /api/products crea un producto con los campos name, description, price, stock.
 http://localhost:9494/api/products
 
@@ -58,6 +190,8 @@ JSON
 
 ![Imagen de contenedor descargada](screenshot/Select-products.png)
 
+### GET (name)
+
 GET /api/products lista todos los productos y permite filtrar por nombre con ?name=.
 http://localhost:9494/api/products?name=laptop DELL
 JSON
@@ -74,6 +208,8 @@ JSON
 ]
 ![Imagen de contenedor descargada](screenshot/GET-Listar-products-name.png)
 
+### GET (id)
+
 GET /api/products/{id} devuelve un producto por su identificador.
 http://localhost:9494/api/products/2
 JSON
@@ -88,7 +224,8 @@ JSON
 }
 ![Imagen de contenedor descargada](screenshot/GET-Obtener-producto-por-id.png)
 
-	
+### PUT 
+
 PUT /api/products/{id} actualiza un producto existente (todos los campos).
 http://localhost:9494/api/products/1
 Se modifico el name de "laptohp" a "laptop HP GAMER"
@@ -106,6 +243,7 @@ Se modifico el name de "laptohp" a "laptop HP GAMER"
 ![Imagen de contenedor descargada](screenshot/PUT-Actualizar-Producto-ID=1.png)
 ![Imagen de contenedor descargada](screenshot/VERIFICA-UPDATE.png)
 
+### DELETE
 
 DELETE /api/products/{id} elimina un producto.
 Se elimina el id=2 (name = "laptop DELL")
@@ -114,7 +252,7 @@ http://localhost:9494/api/products/2
 
 
 ![Imagen de contenedor descargada](screenshot/DELETE-Eliminar-Producto.png)
-[Imagen de contenedor descargada](screenshot/VERIFICA-DELETE.png)
+![Imagen de contenedor descargada](screenshot/VERIFICA-DELETE.png)
 
 								
 
